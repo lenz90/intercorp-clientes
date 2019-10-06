@@ -2,21 +2,26 @@ package com.intercorp.lizardo.intercorpclientes.infrastructure.repository;
 
 import com.intercorp.lizardo.intercorpclientes.domain.ClienteFindRepository;
 import com.intercorp.lizardo.intercorpclientes.domain.DetailCliente;
-import com.intercorp.lizardo.intercorpclientes.domain.Kpi;
+import com.intercorp.lizardo.intercorpclientes.infrastructure.repository.mysql.ClienteMysqlRepository;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
+
+import java.util.stream.Collectors;
 
 @Repository
 public class ClienteBDFindRepository implements ClienteFindRepository {
 
-    @Override
-    public Flux<DetailCliente> findAll() {
-        return Flux.empty();
+    private ClienteMysqlRepository repository;
+
+    public ClienteBDFindRepository(ClienteMysqlRepository repository) {
+        this.repository = repository;
     }
 
     @Override
-    public Mono<Kpi> calculateKpi() {
-        return Mono.empty();
+    public Flux<DetailCliente> findAll() {
+        return Flux.fromIterable(repository.findAll().parallelStream().map(RepositoryAdapter::entityToDetail)
+                .collect(Collectors.toList()));
     }
+
+
 }

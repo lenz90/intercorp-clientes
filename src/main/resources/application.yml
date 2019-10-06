@@ -4,3 +4,15 @@ springfox:
       v2:
         path: /cliente/v1/swagger
 
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  datasource:
+    url: jdbc:mysql://instance1.crwgxi7g6v3z.us-east-2.rds.amazonaws.com:3306/intercorp
+    username: root
+    password: 12345678
+    driver-class-name: com.mysql.jdbc.Driver

@@ -12,6 +12,7 @@ public final class MortandadCalculateService implements MortandadService {
 
     @Override
     public LocalDate calcularMortandadCliente(Cliente cliente) {
+
         return LocalDate.now(); //Por el momento
     }
 

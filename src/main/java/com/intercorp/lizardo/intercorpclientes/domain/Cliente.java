@@ -16,4 +16,24 @@ public final class Cliente {
         this.fechaNacimiento = fechaNacimiento;
         this.edad = Period.between(fechaNacimiento, LocalDate.now()).getYears();
     }
+
+    public String id() {
+        return id;
+    }
+
+    public String nombre() {
+        return nombre;
+    }
+
+    public String apellido() {
+        return apellido;
+    }
+
+    public Integer edad() {
+        return edad;
+    }
+
+    public LocalDate fechaNacimiento() {
+        return fechaNacimiento;
+    }
 }

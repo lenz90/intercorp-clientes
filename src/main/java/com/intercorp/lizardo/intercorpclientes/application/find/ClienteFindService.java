@@ -1,5 +1,6 @@
 package com.intercorp.lizardo.intercorpclientes.application.find;
 
+import com.google.common.math.Stats;
 import com.intercorp.lizardo.intercorpclientes.application.find.adapter.ClienteFindAdapter;
 import com.intercorp.lizardo.intercorpclientes.domain.ClienteFindRepository;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,12 @@ public final class ClienteFindService {
     }
 
     public Mono<KpiClientesResponse> obtenerKpis() {
-        return findRepository.calculateKpi().map(ClienteFindAdapter::kpiToResponse);
+
+
+        return findRepository.findAll().map(x -> x.edad()).collectList().map(x -> {
+            Stats s = Stats.of(x);
+            return new KpiClientesResponse(s.populationStandardDeviation(), s.mean());
+        });
     }
 
 }
