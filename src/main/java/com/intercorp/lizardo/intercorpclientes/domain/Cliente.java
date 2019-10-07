@@ -11,6 +11,7 @@ public final class Cliente {
     private LocalDate fechaNacimiento;
 
     public Cliente(String id, String nombre, String apellido, LocalDate fechaNacimiento) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNacimiento = fechaNacimiento;

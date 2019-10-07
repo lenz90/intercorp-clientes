@@ -6,8 +6,13 @@ import com.intercorp.lizardo.intercorpclientes.infrastructure.repository.mysql.e
 
 public final class RepositoryAdapter {
     public static ClienteEntity clienteToEntity(Cliente cliente) {
-        return new ClienteEntity(cliente.id(), cliente.nombre(), cliente.apellido(), cliente.edad(),
+        return new ClienteEntity(null, cliente.nombre(), cliente.apellido(), cliente.edad(),
                 cliente.fechaNacimiento(), null);
+    }
+
+    public static Cliente clienteToEntity(ClienteEntity cliente) {
+        return new Cliente(cliente.id().toString(), cliente.nombre(), cliente.apellido(),
+                cliente.fechaNacimiento());
     }
 
     public static DetailCliente entityToDetail(ClienteEntity entity) {

@@ -6,7 +6,7 @@ public class KpiClientesResponse {
 
     public KpiClientesResponse(Double promedioClientes, Double desviacionEstandar) {
         this.promedioClientes = promedioClientes;
-        desviacionEstandar = desviacionEstandar;
+        this.desviacionEstandar = desviacionEstandar;
     }
 
     public Double promedioClientes() {

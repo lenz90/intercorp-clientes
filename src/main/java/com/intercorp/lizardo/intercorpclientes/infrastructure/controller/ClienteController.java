@@ -21,7 +21,7 @@ import java.time.format.DateTimeFormatter;
 
 @RestController
 @RequestMapping("/cliente/v1")
-@Api("Api para crear y obtener resultados valiosos de los clientes")
+@Api(value = "Api para crear y obtener resultados valiosos de los clientes", tags = "ApiCliente")
 public final class ClienteController {
 
     private ClienteCreateService createService;

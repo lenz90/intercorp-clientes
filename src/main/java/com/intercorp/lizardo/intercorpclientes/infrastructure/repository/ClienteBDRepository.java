@@ -19,7 +19,11 @@ public class ClienteBDRepository implements ClienteRepository {
 
     @Override
     public Mono<Cliente> create(Cliente cliente) {
-        return Mono.just(repository.save(RepositoryAdapter.clienteToEntity(cliente))).map(x -> cliente);
+        return Mono.just(repository.save(RepositoryAdapter.clienteToEntity(cliente)))
+                .map(RepositoryAdapter::clienteToEntity);
+
+        /*return Mono.just(repository.saveCliente(cliente.id(), cliente.nombre(), cliente.apellido(), cliente.edad(),
+                cliente.fechaNacimiento(), null)).map(x->cliente);*/
 
     }
 

@@ -21,7 +21,8 @@ public final class ClienteCreateService {
     }
 
     public Mono<Void> crearCliente(CrearClienteRequest request) {
-        Cliente cliente = new Cliente(UUID.randomUUID().toString(), request.nombre(), request.apellido(), request.fechaNacimiento());
+        Cliente cliente = new Cliente(null, request.nombre(), request.apellido(), request.fechaNacimiento());
+        //MySql te obliga a que el codigo se genere por parte de base datos
         return clienteRepository.create(cliente).flatMap(x->clienteRepository.updateFechaMortandad(
                 mortandadService.calcularMortandadCliente(x),
                 x.id()));

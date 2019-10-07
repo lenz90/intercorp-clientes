@@ -25,7 +25,13 @@ public final class ClienteFindService {
 
         return findRepository.findAll().map(x -> x.edad()).collectList().map(x -> {
             Stats s = Stats.of(x);
-            return new KpiClientesResponse(s.populationStandardDeviation(), s.mean());
+            if(x.size()>0) {
+                return new KpiClientesResponse(s.mean(), s.populationStandardDeviation());
+            }
+            else {
+                return new KpiClientesResponse(0.0,0.0);
+            }
+
         });
     }
 

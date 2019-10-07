@@ -1,5 +1,6 @@
 package com.intercorp.lizardo.intercorpclientes.infrastructure.repository;
 
+import com.google.common.collect.Lists;
 import com.intercorp.lizardo.intercorpclientes.domain.ClienteFindRepository;
 import com.intercorp.lizardo.intercorpclientes.domain.DetailCliente;
 import com.intercorp.lizardo.intercorpclientes.infrastructure.repository.mysql.ClienteMysqlRepository;
@@ -19,7 +20,8 @@ public class ClienteBDFindRepository implements ClienteFindRepository {
 
     @Override
     public Flux<DetailCliente> findAll() {
-        return Flux.fromIterable(repository.findAll().parallelStream().map(RepositoryAdapter::entityToDetail)
+        return Flux.fromIterable(Lists.newArrayList(repository.findAll()).parallelStream()
+                .map(RepositoryAdapter::entityToDetail)
                 .collect(Collectors.toList()));
     }
 
