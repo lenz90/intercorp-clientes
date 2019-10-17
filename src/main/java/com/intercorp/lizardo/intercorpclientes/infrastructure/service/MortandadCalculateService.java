@@ -29,11 +29,11 @@ public final class MortandadCalculateService implements MortandadService {
             prom = 0.5;
         }else if(edadActual>=50){
             prom = 0.7;
-        }else if(edadActual>=50){
+        }else if(edadActual>=40){
             prom = 0.9;
-        }else if(edadActual>=50){
+        }else if(edadActual>=30){
             prom = 1.1;
-        }else if(edadActual>=50){
+        }else if(edadActual>=20){
             prom = 1.3;
         }else{
             prom = 1.5;

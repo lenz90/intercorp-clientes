@@ -15,7 +15,7 @@ public interface ClienteMysqlRepository extends CrudRepository<ClienteEntity, St
     @Transactional
     @Query(value = "update cliente c set c.fecfal = ?1 where c.id = ?2",
             nativeQuery = true)
-    void updateFechaMortandad(LocalDate fechaFallecimiento, String id);
+    Integer updateFechaMortandad(LocalDate fechaFallecimiento, String id);
 
 
 
