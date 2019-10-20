@@ -22,7 +22,7 @@ public class SwaggerConfig {
     @SuppressWarnings("rawtypes")
     public static final ApiInfo DEFAULT_API_INFO
             = new ApiInfo("Api Clientes Documentación",
-            "Api para la creacion y visualizacion de los datos de clientes",
+            "Api para la creacion y visualizacion de los datos de clientes de intercorp",
             "1.0", "PRIMIUM", DEFAULT_CONTACT, "Apache 2.0",
             "http://www.apache.org/licenses/LICENSE-2.0", new ArrayList<VendorExtension>());
 
