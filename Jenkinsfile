@@ -33,7 +33,7 @@ pipeline {
         stage('Construyendo Imagen Docker') {
             steps {
                 echo "-=- Construyendo Imagen Docker -=-"
-                sh "docker build -t lenz90/docker-intercorp ."
+                sh "docker build -t --rm lenz90/docker-intercorp ."
             }
         }
         stage('Run Docker image') {
