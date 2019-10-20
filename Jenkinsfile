@@ -33,13 +33,13 @@ pipeline {
         stage('Construyendo Imagen Docker') {
             steps {
                 echo "-=- Construyendo Imagen Docker -=-"
-                sh "docker build -t --rm lenz90/docker-intercorp ."
+                sh "docker build -t lenz90/docker-intercorp ."
             }
         }
         stage('Run Docker image') {
             steps {
                 echo "-=- run Docker image -=-"
-                sh "docker run -d -p 80:8080 lenz90/docker-intercorp"
+                sh "docker run --rm -d -p 80:8080 lenz90/docker-intercorp"
                 //sh "docker run --name ${TEST_CONTAINER_NAME} --detach --rm --network ci --expose 6300 --env JAVA_OPTS='-javaagent:/jacocoagent.jar=output=tcpserver,address=*,port=6300' ${ORG_NAME}/${APP_NAME}:latest"
             }
         }
